@@ -1,0 +1,22 @@
+
+#main-box {
+    color: white;
+    font-size: 20px;
+    font-style: italic;
+    background-color: teal;
+    border: 2px solid white;
+    padding: 20px;
+    margin: 20px;
+  }
+  
+ 
+  .secondary-box {
+    color: navy;
+    font-size: 18px;
+    font-style: oblique;
+    background-color: lightgray;
+    border: 2px dashed navy;
+    padding: 15px;
+    margin: 20px;
+  }
+  
