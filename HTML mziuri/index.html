@@ -1,19 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ka">
 <head>
   <meta charset="UTF-8">
-  <title>საკლასო დავალება</title>
-  <link rel="stylesheet" href="style.css">
+  <title>სმარტფონების არჩევა</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      color: black;
+      padding: 40px;
+    }
+    .title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-button {
+      background-color: white;
+      color: #006600;
+      padding: 10px 20px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      border-radius: 10px 10px 0 0;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 160px;
+      border: 1px solid #ccc;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    .dropdown-content div {
+      color: black;
+      padding: 10px 16px;
+      cursor: pointer;
+      border-top: 1px solid #eee;
+    }
+    .dropdown-content div:hover {
+      background-color: #f1f1f1;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+  </style>
 </head>
-<body>
+<body></body>
 
-  <div id="main-box">
-    ეს არის პირველი div, რომელსაც აქვს id სელექტორი
+  <div class="dropdown">
+    <div class="dropdown-button">აირჩიე შენი ტელეფონი ▼</div>
+    <div class="dropdown-content">
+      <div>Iphone</div>
+      <div>Samsung</div>
+      <div>Xiaomi</div>
+      <div>Realme</div>
+      <div>Poco</div>
+      <div>Nokia</div>
+      <div>Huawei</div>
+      <div>Google Pixel</div>
+      <div>სხვა</div>
+    </div>
   </div>
-
-  <div class="secondary-box">
-    ეს არის მეორე div, რომელსაც აქვს class სელექტორი
-  </div>
-
 </body>
 </html>
