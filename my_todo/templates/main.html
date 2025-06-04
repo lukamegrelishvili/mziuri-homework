@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-5">My To Do</h1>
+
+    <form action="{{url_for('add_todo')}}" method="POST" class="mb-3">
+        <div class="mb-3">
+            <input name="todo_title" type="text" class="form-control" id="noteTitle" placeholder="Todo title" required>
+        </div>
+        <div class="mb-3">
+            <textarea name="todo_text" class="form-control" id="noteContent" placeholder="Todo text" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+
+    <div id="notesList">
+        <div class="note card mb-3">
+            <div class="card-body">
+                {% if todos %}
+                {% for todo in todos %}
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="w-100">
+                        {% if edit_id == todo.id %}
+                        <form action="{{ url_for('update_todo', todo_id=todo.id) }}" method="POST" class="mb-3">
+                            <div class="mb-2">
+                                <input name="todo_title" type="text" class="form-control" value="{{ todo.title }}" required>
+                            </div>
+                            <div class="mb-2">
+                                <textarea name="todo_text" class="form-control" required>{{ todo.text }}</textarea>
+                            </div>
+                            <div class="d-flex">
+                                <button type="submit" class="btn btn-success me-2">Save</button>
+                                <a href="{{ url_for('main') }}" class="btn btn-secondary">Cancel</a>
+                            </div>
+                        </form>
+                        {% else %}
+                        <h5 class="card-title">{{ todo.title }}</h5>
+                        <p class="card-text">{{ todo.text }}</p>
+                        <div class="d-flex">
+                            <form action="/delete/{{ todo.id }}" method="POST" class="me-2">
+                                <button class="btn btn-danger">Delete</button>
+                            </form>
+                            <a href="{{ url_for('main', edit_id=todo.id) }}" class="btn btn-warning">Edit</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
