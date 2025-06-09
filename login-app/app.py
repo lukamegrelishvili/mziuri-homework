@@ -14,7 +14,7 @@ def register(username, password):
 @app.route("/login/<username>/<password>")
 def login(username, password):
     if database.login_user(username, password):
-        return "shexvedi"
+        return "AUTHENTICATED"
     return "NOT FOUND"
 
 @app.route("/users")
