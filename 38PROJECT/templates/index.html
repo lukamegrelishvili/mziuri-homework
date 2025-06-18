@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>postebi</title>
+</head>
+<body>
+    <h1>postebi</h1>
+    {% if current_user.is_authenticated %}
+      <p>Привет, {{ current_user.username }}! <a href="{{ url_for('logout') }}">gadi</a></p>
+      <p><a href="{{ url_for('add_post') }}">daamate posti to</a></p>
+    {% else %}
+      <p><a href="{{ url_for('login') }}">shedi</a> | <a href="{{ url_for('register') }}">registracia</a></p>
+    {% endif %}
+
+    <ul>
+    {% for post in posts %}
+      <li><b>{{ post.user.username }}:</b> {{ post.description }}</li>
+    {% else %}
+      <li>nou posts too</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
